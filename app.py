@@ -102,14 +102,15 @@ with st.sidebar:
 # -------------------- Symbol helpers --------------------
 @st.cache_data(show_spinner=False)
 def _load_symbols():
-    p1 = os.path.join("data", "indian_symbols.csv")
-    if os.path.exists(p1):
-        return load_symbol_list(p1)
-    # fallback mini list
-    return pd.DataFrame({
-        "symbol": ["INFY.NS", "TCS.NS", "RELIANCE.NS", "TATAPOWER.NS", "TATAMOTORS.NS", "HDFCBANK.NS", "SBIN.NS"],
-        "name":   ["Infosys", "Tata Consultancy Services", "Reliance Industries", "Tata Power", "Tata Motors", "HDFC Bank", "State Bank of India"]
-    })
+    url = "https://github.com/HrishikeshShelar/PROfile/blob/main/indian_symbols.csv"
+    try:
+        return pd.read_csv(url)
+    except:
+        return pd.DataFrame({
+            "symbol": ["INFY.NS", "TCS.NS", "RELIANCE.NS", "TATAPOWER.NS", "TATAMOTORS.NS", "HDFCBANK.NS", "SBIN.NS"],
+            "name":   ["Infosys", "Tata Consultancy Services", "Reliance Industries", "Tata Power", "Tata Motors", "HDFC Bank", "State Bank of India"]
+        })
+
 
 df_symbols = _load_symbols()
 
