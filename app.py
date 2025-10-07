@@ -102,14 +102,16 @@ with st.sidebar:
 # -------------------- Symbol helpers --------------------
 @st.cache_data(show_spinner=False)
 def _load_symbols():
-    url = "https://github.com/HrishikeshShelar/PROfile/blob/main/indian_symbols.csv"
+    url = "https://raw.githubusercontent.com/HrishikeshShelar/PROfile/main/indian_symbols.csv"
     try:
         return pd.read_csv(url)
-    except:
+    except Exception as e:
+        st.warning(f"Could not load symbols from GitHub, using fallback. Error: {e}")
         return pd.DataFrame({
             "symbol": ["INFY.NS", "TCS.NS", "RELIANCE.NS", "TATAPOWER.NS", "TATAMOTORS.NS", "HDFCBANK.NS", "SBIN.NS"],
             "name":   ["Infosys", "Tata Consultancy Services", "Reliance Industries", "Tata Power", "Tata Motors", "HDFC Bank", "State Bank of India"]
         })
+
 
 
 df_symbols = _load_symbols()
