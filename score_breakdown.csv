@@ -1,0 +1,6 @@
+Factor,Raw Metric,Normalized (0–1),Weight,Contribution
+momentum,,0.8,1.2,0.96
+trend,,0.0,1.2,0.0
+volume,,0.0,1.0,0.0
+fundamentals,,0.39,1.0,0.39
+liquidity,,1.0,0.6,0.6
