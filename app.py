@@ -15,12 +15,12 @@ from utils import (
 
 # -------------------- Page & THEME --------------------
 st.set_page_config(
-    page_title="⚡ InsightXpert — Indian Stock Recommender (Rule-Based)",
+    page_title="⚡ UnsideXpert",
     page_icon="⚡",
     layout="wide",
     menu_items={
         "Get help": "mailto:help@example.com",
-        "About": "InsightXpert — educational research UI over Yahoo Finance. Not investment advice."
+        "About": "UpsideXpert — educational research UI over Yahoo Finance. Not investment advice."
     }
 )
 
